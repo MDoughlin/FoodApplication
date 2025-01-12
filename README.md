@@ -5,7 +5,7 @@ food options on the island. Whether you're a visitor exploring hidden gems or a 
 looking for quick, accurate vendor information, this app has you covered.
 
 🚀 Features
-🔍 Searchable Vendor Directory: Easily find food vendors by name, location, or cuisine.
-📍 Geo-Tagging: Vendors can tag their exact location for seamless navigation.
-📅 Accurate Information: Access vendor hours, payment options, and menus all in one place.
-🌍 Tourist-Friendly Filters: Find hidden gems and authentic local favorites.
+🔍 Searchable Vendor Directory: Easily find food vendors by name, location, or cuisine.<br>
+📍 Geo-Tagging: Vendors can tag their exact location for seamless navigation.<br>
+📅 Accurate Information: Access vendor hours, payment options, and menus all in one place.<br>
+🌍 Tourist-Friendly Filters: Find hidden gems and authentic local favorites.<br>
