@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text, View, TextInput, StyleSheet, SafeAreaView } from "react-native";
 import { ProgressSteps, ProgressStep } from "react-native-progress-steps";
-import Checkbox from "expo-checkbox";
+import { CheckBox } from "../../components/CheckBox";
 
 const VendorSignUp = () => {
   const [step1Data, setStep1Data] = useState({ nameOfBusiness: "" });
@@ -15,7 +15,8 @@ const VendorSignUp = () => {
     Friday: "",
     Saturday: "",
   });
-  const [isChecked, setChecked] = useState(false);
+  const [payment, setPayment] = useState([]);
+  const [cuisine, setCuisine] = useState([]);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -131,16 +132,16 @@ const VendorSignUp = () => {
         <ProgressStep label="Step 5">
           <View style={styles.stepContent}>
             <Text>Payment</Text>
-            <Text>What forms of payments do you accept?</Text>
-            <Checkbox
+            <Text>What form of payments do you accept?</Text>
+            <CheckBox
               options={[
                 { label: "Cash", value: "Cash" },
                 { label: "Credit", value: "Credit / Debit Card" },
                 { label: "FirstPay", value: "1st Pay" },
                 { label: "CIBC", value: "CIBC Transfer" },
               ]}
-              value={isChecked}
-              onValueChange={setChecked}
+              value={payment}
+              onChange={setPayment}
             />
           </View>
         </ProgressStep>
@@ -154,20 +155,19 @@ const VendorSignUp = () => {
         <ProgressStep label="Step 7">
           <View style={styles.stepContent}>
             <Text>Cuisine</Text>
-
-            <Checkbox
+            <CheckBox
               options={[
-                { label: "Bajan", value: "Traditional Bajan" },
+                { label: "Traditional Bajan", value: "Traditional Bajan" },
                 { label: "Caribbean", value: "Caribbean" },
                 { label: "Seafood", value: "Seafood" },
                 { label: "International", value: "International" },
                 { label: "Fusion", value: "Fusion" },
-                { label: "V", value: "Vegan/Vegetarian" },
-                { label: "Desserts", value: "Sweets and Treats" },
+                { label: "Vegan/Vegetarian", value: "Vegan/Vegetarian" },
+                { label: "Sweets and Treats", value: "Sweets and Treats" },
                 { label: "Drinks", value: "Drinks" },
               ]}
-              value={isChecked}
-              onValueChange={setChecked}
+              value={cuisine}
+              onChange={setCuisine}
             />
           </View>
         </ProgressStep>
