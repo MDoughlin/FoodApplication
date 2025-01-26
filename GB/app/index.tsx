@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import VendorSignUp from "../screens/VendorSignUp";
+import VendorSignUp from "./screens/VendorSignUp";
 
 export default function HomeScreen() {
   return <VendorSignUp />;
