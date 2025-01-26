@@ -31,7 +31,7 @@ const VendorSignUp = () => {
       // label: "Step 1",
       content: (
         <View style={styles.stepContent}>
-          <Text>Name of Business</Text>
+          <Text style={styles.heading}>Business Name</Text>
           <TextInput
             style={styles.input}
             placeholder="Name of Business"
@@ -44,10 +44,10 @@ const VendorSignUp = () => {
       ),
     },
     {
-      label: "Step 2",
+      // label: "Step 2",
       content: (
         <View style={styles.stepContent}>
-          <Text>Phone Number</Text>
+          <Text style={styles.heading}>Phone Number</Text>
           <TextInput
             style={styles.input}
             placeholder="Phone Number"
@@ -60,10 +60,11 @@ const VendorSignUp = () => {
         </View>
       ),
     },
+
     {
-      label: "Step 3",
+      // label: "Step 3",
       content: (
-        <View style={styles.stepContent}>
+        <View>
           <Text>Business Hours</Text>
           {Object.keys(step3Data).map((day) => (
             <TextInput
@@ -80,19 +81,26 @@ const VendorSignUp = () => {
       ),
     },
     {
-      label: "Skipped Step",
+      // label: "Skipped Step",
+      content: (
+        <View style={styles.stepContent}>
+          <Text style={styles.heading}>Social Media</Text>
+        </View>
+      ),
+    },
+    {
+      // label: "Skipped Step",
       content: (
         <View style={styles.stepContent}>
           <Text>Now, Let's add the details</Text>
         </View>
       ),
-      isSkippable: true,
     },
     {
-      label: "Step 4",
+      // label: "Step 4",
       content: (
         <View style={styles.stepContent}>
-          <Text>Location</Text>
+          <Text style={styles.heading}>Location</Text>
           <Text>
             Pin location while at establishment. This will be shown to users.
           </Text>
@@ -100,10 +108,10 @@ const VendorSignUp = () => {
       ),
     },
     {
-      label: "Step 5",
+      // label: "Step 5",
       content: (
         <View style={styles.stepContent}>
-          <Text>Payment</Text>
+          <Text style={styles.heading}>Payment</Text>
           <Text>What form of payments do you accept?</Text>
           <CheckBox
             options={[
@@ -119,20 +127,20 @@ const VendorSignUp = () => {
       ),
     },
     {
-      label: "Step 6",
+      // label: "Step 6",
       content: (
         <View style={styles.stepContent}>
-          <Text>Ordering</Text>
+          <Text style={styles.heading}>Ordering</Text>
           <Text>How do patrons order?</Text>
           <TextInput style={styles.input} />
         </View>
       ),
     },
     {
-      label: "Step 7",
+      // label: "Step 7",
       content: (
         <View style={styles.stepContent}>
-          <Text>Cuisine</Text>
+          <Text style={styles.heading}>Cuisine</Text>
           <CheckBox
             options={[
               { label: "Traditional Bajan", value: "Traditional Bajan" },
@@ -196,25 +204,37 @@ const VendorSignUp = () => {
 const styles = StyleSheet.create({
   progressContainer: {
     flex: 1,
+    // padding: 20,
+    // justifyContent: "center",
+    // alignItems: "center",
+  },
+  heading: {
+    textAlign: "center",
+    fontSize: 36.41,
     padding: 20,
+  },
+  // progressLabel: {
+  //   fontSize: 20,
+  //   fontWeight: "bold",
+  //   marginBottom: 20,
+  // },
+  stepContent: {
+    // width: "100%",
     justifyContent: "center",
     alignItems: "center",
-  },
-  progressLabel: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-  stepContent: {
-    width: "100%",
   },
   input: {
     borderWidth: 1,
     borderColor: "#ccc",
     padding: 10,
-    width: "100%",
+    width: "98%",
     borderRadius: 5,
-    marginVertical: 10,
+    marginVertical: 0,
+    marginTop: 150,
+  },
+  inputContainer: {
+    justifyContent: "center",
+    alignItems: "center",
   },
   buttonContainer: {
     flexDirection: "row",
