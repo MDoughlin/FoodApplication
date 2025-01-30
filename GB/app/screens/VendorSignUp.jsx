@@ -7,8 +7,10 @@ import {
   SafeAreaView,
   Button,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import { CheckBox } from "../../components/CheckBox";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const VendorSignUp = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -65,11 +67,11 @@ const VendorSignUp = () => {
       // label: "Step 3",
       content: (
         <View>
-          <Text>Business Hours</Text>
+          <Text style={styles.heading}>Business Hours</Text>
           {Object.keys(step3Data).map((day) => (
             <TextInput
               key={day}
-              style={styles.input}
+              style={styles.businessInput}
               placeholder={`${day} Hours`}
               value={step3Data[day]}
               onChangeText={(text) =>
@@ -92,7 +94,7 @@ const VendorSignUp = () => {
       // label: "Skipped Step",
       content: (
         <View style={styles.stepContent}>
-          <Text>Now, Let's add the details</Text>
+          <Text style={styles.details}>Now, Let's add the details</Text>
         </View>
       ),
     },
@@ -101,7 +103,8 @@ const VendorSignUp = () => {
       content: (
         <View style={styles.stepContent}>
           <Text style={styles.heading}>Location</Text>
-          <Text>
+          <Icon name="location-outline" size={400} />
+          <Text style={styles.details}>
             Pin location while at establishment. This will be shown to users.
           </Text>
         </View>
@@ -120,7 +123,7 @@ const VendorSignUp = () => {
               { label: "FirstPay", value: "1st Pay" },
               { label: "CIBC", value: "CIBC Transfer" },
             ]}
-            value={payment}
+            checkedValues={payment}
             onChange={setPayment}
           />
         </View>
@@ -132,7 +135,7 @@ const VendorSignUp = () => {
         <View style={styles.stepContent}>
           <Text style={styles.heading}>Ordering</Text>
           <Text>How do patrons order?</Text>
-          <TextInput style={styles.input} />
+          <TextInput style={styles.orderInput} />
         </View>
       ),
     },
@@ -152,7 +155,7 @@ const VendorSignUp = () => {
               { label: "Sweets and Treats", value: "Sweets and Treats" },
               { label: "Drinks", value: "Drinks" },
             ]}
-            value={cuisine}
+            checkedValues={cuisine}
             onChange={setCuisine}
           />
         </View>
@@ -225,12 +228,36 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "black",
     padding: 10,
     width: "98%",
     borderRadius: 5,
     marginVertical: 0,
     marginTop: 150,
+  },
+  businessInput: {
+    borderWidth: 1,
+    borderColor: "black",
+    padding: 10,
+    width: "98%",
+    borderRadius: 5,
+    marginVertical: 0,
+    marginBottom: 25,
+    marginTop: 10,
+    marginLeft: 5,
+  },
+  orderInput: {
+    borderWidth: 1,
+    borderColor: "black",
+    height: 100,
+    padding: 10,
+    width: "98%",
+    borderRadius: 5,
+    // marginVertical: 0,
+    marginTop: 20,
+  },
+  details: {
+    marginTop: 50,
   },
   inputContainer: {
     justifyContent: "center",
