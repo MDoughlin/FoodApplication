@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { CheckBox } from "../../components/CheckBox";
 import Icon from "react-native-vector-icons/Ionicons";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 const VendorSignUp = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -69,15 +70,18 @@ const VendorSignUp = () => {
         <View>
           <Text style={styles.heading}>Business Hours</Text>
           {Object.keys(step3Data).map((day) => (
-            <TextInput
-              key={day}
-              style={styles.businessInput}
-              placeholder={`${day} Hours`}
-              value={step3Data[day]}
-              onChangeText={(text) =>
-                setStep3Data({ ...step3Data, [day]: text })
-              }
-            />
+            <>
+              <Text>{day}:</Text>
+              <TextInput
+                key={day}
+                style={styles.businessInput}
+                placeholder={`${day} Hours`}
+                value={step3Data[day]}
+                onChangeText={(text) =>
+                  setStep3Data({ ...step3Data, [day]: text })
+                }
+              />
+            </>
           ))}
         </View>
       ),
@@ -87,6 +91,12 @@ const VendorSignUp = () => {
       content: (
         <View style={styles.stepContent}>
           <Text style={styles.heading}>Social Media</Text>
+          <Text>Instagram Handle:</Text>
+          <TextInput style={styles.businessInput}>www.instagram.com/</TextInput>
+          <Icon style={styles.icon} name="logo-instagram" />
+          <Text>Facebook:</Text>
+          <TextInput style={styles.businessInput}>www.facebook.com/</TextInput>
+          <Icon name="logo-facebook" />
         </View>
       ),
     },
@@ -189,16 +199,23 @@ const VendorSignUp = () => {
         <Text style={styles.progressLabel}>{steps[currentStep].label}</Text>
         {steps[currentStep].content}
       </View>
-      <View style={styles.buttonContainer}>
-        <Button
-          title="Back"
+      <View>
+        <TouchableOpacity
+          style={[
+            styles.backButton,
+            currentStep === 0 && styles.disabledButton,
+          ]}
           onPress={handleBack}
           disabled={currentStep === 0}
-        />
-        <Button
-          title={currentStep === steps.length - 1 ? "Finish" : "Next"}
-          onPress={handleNext}
-        />
+        >
+          {/* This is the back button */}
+          <MaterialIcons name="arrow-back-ios-new" size={30} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
+          <Text style={styles.nextButtonText}>
+            {currentStep === steps.length - 1 ? "DONE" : "CONTINUE"}
+          </Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -222,7 +239,6 @@ const styles = StyleSheet.create({
   //   marginBottom: 20,
   // },
   stepContent: {
-    // width: "100%",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -235,6 +251,7 @@ const styles = StyleSheet.create({
     marginVertical: 0,
     marginTop: 150,
   },
+  icon: {},
   businessInput: {
     borderWidth: 1,
     borderColor: "black",
@@ -253,7 +270,6 @@ const styles = StyleSheet.create({
     padding: 10,
     width: "98%",
     borderRadius: 5,
-    // marginVertical: 0,
     marginTop: 20,
   },
   details: {
@@ -265,8 +281,23 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    padding: 20,
+  },
+  socialMedia: {},
+  nextButton: {
+    backgroundColor: "#FBBC05",
+    paddingVertical: 12,
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 40,
+    marginRight: 40,
+  },
+  nextButtonText: {
+    color: "#fff",
+  },
+  backButton: {
+    left: 10,
+    bottom: 680,
   },
 });
 
