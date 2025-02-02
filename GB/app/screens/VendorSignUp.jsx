@@ -8,6 +8,7 @@ import {
   Button,
   TouchableOpacity,
   Image,
+  ScrollView,
 } from "react-native";
 import { CheckBox } from "../../components/CheckBox";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -67,36 +68,42 @@ const VendorSignUp = () => {
     {
       // label: "Step 3",
       content: (
-        <View>
-          <Text style={styles.heading}>Business Hours</Text>
-          {Object.keys(step3Data).map((day) => (
-            <>
-              <Text>{day}:</Text>
-              <TextInput
-                key={day}
-                style={styles.businessInput}
-                placeholder={`${day} Hours`}
-                value={step3Data[day]}
-                onChangeText={(text) =>
-                  setStep3Data({ ...step3Data, [day]: text })
-                }
-              />
-            </>
-          ))}
-        </View>
+        <ScrollView>
+          <View>
+            <Text style={styles.heading}>Business Hours</Text>
+            {Object.keys(step3Data).map((day) => (
+              <>
+                <Text>{day}:</Text>
+                <TextInput
+                  key={day}
+                  style={styles.businessInput}
+                  placeholder={`${day} Hours`}
+                  value={step3Data[day]}
+                  onChangeText={(text) =>
+                    setStep3Data({ ...step3Data, [day]: text })
+                  }
+                />
+              </>
+            ))}
+          </View>
+        </ScrollView>
       ),
     },
     {
       // label: "Skipped Step",
       content: (
-        <View style={styles.stepContent}>
+        <View style={styles.socialSection}>
           <Text style={styles.heading}>Social Media</Text>
-          <Text>Instagram Handle:</Text>
-          <TextInput style={styles.businessInput}>www.instagram.com/</TextInput>
-          <Icon style={styles.icon} name="logo-instagram" />
-          <Text>Facebook:</Text>
-          <TextInput style={styles.businessInput}>www.facebook.com/</TextInput>
-          <Icon name="logo-facebook" />
+          <Text style={styles.inputLabel}>Instagram Handle:</Text>
+          <View style={styles.inputContainer}>
+            <Icon style={styles.icon} name="logo-instagram" />
+            <TextInput style={styles.socialInput}>www.instagram.com/</TextInput>
+          </View>
+          <Text style={styles.inputLabel}>Facebook:</Text>
+          <View style={styles.inputContainer}>
+            <Icon style={styles.icon} name="logo-facebook" />
+            <TextInput style={styles.socialInput}>www.facebook.com/</TextInput>
+          </View>
         </View>
       ),
     },
@@ -242,26 +249,44 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  socialSection: {
+    // flexDirection: "row",
+    justifyContent: "center",
+    // alignItems: "center",
+    paddingLeft: 5,
+  },
   input: {
     borderWidth: 1,
     borderColor: "black",
     padding: 10,
     width: "98%",
+    height: 50,
     borderRadius: 5,
     marginVertical: 0,
     marginTop: 150,
   },
-  icon: {},
+  icon: {
+    padding: 10,
+    margin: 5,
+    height: 25,
+    width: 25,
+    resizeMode: "stretch",
+    alignItems: "center",
+  },
   businessInput: {
     borderWidth: 1,
     borderColor: "black",
     padding: 10,
     width: "98%",
+    height: 50,
     borderRadius: 5,
     marginVertical: 0,
     marginBottom: 25,
     marginTop: 10,
     marginLeft: 5,
+  },
+  socialInput: {
+    flex: 1,
   },
   orderInput: {
     borderWidth: 1,
@@ -276,8 +301,15 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   inputContainer: {
-    justifyContent: "center",
+    flexDirection: "row",
     alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 5,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    width: "98%",
+    // backgroundColor: "#fff",
   },
   buttonContainer: {
     flexDirection: "row",
@@ -298,6 +330,11 @@ const styles = StyleSheet.create({
   backButton: {
     left: 10,
     bottom: 680,
+  },
+  inputLabel: {
+    paddingTop: 5,
+    marginBottom: 5,
+    // paddingBottom: 10,
   },
 });
 
