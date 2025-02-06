@@ -239,6 +239,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 36.41,
     padding: 20,
+    // fontFamily: "Sofia Pro Semi Bold Az",
   },
   // progressLabel: {
   //   fontSize: 20,
