@@ -14,7 +14,7 @@ import { CheckBox } from "../../components/CheckBox";
 import Icon from "react-native-vector-icons/Ionicons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-const VendorSignUp = () => {
+const VendorSignUp = ({ navigation }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [step1Data, setStep1Data] = useState({ nameOfBusiness: "" });
   const [step2Data, setStep2Data] = useState({ phoneNumber: "" });
@@ -180,13 +180,32 @@ const VendorSignUp = () => {
     },
   ];
 
+  // const handleNext = () => {
+  //   let nextStep = currentStep + 1;
+  //   if (steps[nextStep]?.isSkippable) {
+  //     nextStep += 1; // Skip step
+  //   }
+  //   if (nextStep < steps.length) {
+  //     setCurrentStep(nextStep);
+  //   }
+  // };
+
+  // const handleNext = () => {
+  //   if (currentStep === step1Data.length - 1) {
+  //     navigation.navigate("Home");
+  //   } else {
+  //     setCurrentStep(currentStep + 1);
+  //   }
+  // };
+
   const handleNext = () => {
-    let nextStep = currentStep + 1;
-    if (steps[nextStep]?.isSkippable) {
-      nextStep += 1; // Skip step
-    }
-    if (nextStep < steps.length) {
-      setCurrentStep(nextStep);
+    console.log("Current Step:", currentStep);
+    if (currentStep === steps.length - 1) {
+      console.log("Navigating to Home...");
+      navigation.navigate("Home");
+    } else {
+      console.log("Going to next step...");
+      setCurrentStep(currentStep + 1);
     }
   };
 

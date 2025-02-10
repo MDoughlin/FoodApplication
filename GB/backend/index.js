@@ -8,10 +8,8 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Sample route
-app.get("/", (req, res) => {
-  res.send("Backend is running!");
-});
+const apiRoutes = require("./routes/api");
+app.use("/api", apiRoutes);
 
 // Start the server
 app.listen(port, () => {

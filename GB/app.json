@@ -1,5 +1,6 @@
 {
   "expo": {
+    "JSEngine": "hermes",
     "name": "GB",
     "slug": "GB",
     "version": "1.0.0",
@@ -9,6 +10,7 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
+      "jsEngine": "jsc",
       "supportsTablet": true,
       "bundleIdentifier": "com.anonymous.GB"
     },
