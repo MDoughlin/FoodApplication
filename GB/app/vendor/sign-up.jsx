@@ -1,13 +1,12 @@
 import React, { useState } from "react";
+import { router } from "expo-router";
 import {
   Text,
   View,
   TextInput,
   StyleSheet,
   SafeAreaView,
-  Button,
   TouchableOpacity,
-  Image,
   ScrollView,
 } from "react-native";
 import { CheckBox } from "../../components/CheckBox";
@@ -72,7 +71,7 @@ const VendorSignUp = ({ navigation }) => {
           <View>
             <Text style={styles.heading}>Business Hours</Text>
             {Object.keys(step3Data).map((day) => (
-              <>
+              <View key={day}>
                 <Text>{day}:</Text>
                 <TextInput
                   key={day}
@@ -83,7 +82,7 @@ const VendorSignUp = ({ navigation }) => {
                     setStep3Data({ ...step3Data, [day]: text })
                   }
                 />
-              </>
+              </View>
             ))}
           </View>
         </ScrollView>
@@ -180,29 +179,11 @@ const VendorSignUp = ({ navigation }) => {
     },
   ];
 
-  // const handleNext = () => {
-  //   let nextStep = currentStep + 1;
-  //   if (steps[nextStep]?.isSkippable) {
-  //     nextStep += 1; // Skip step
-  //   }
-  //   if (nextStep < steps.length) {
-  //     setCurrentStep(nextStep);
-  //   }
-  // };
-
-  // const handleNext = () => {
-  //   if (currentStep === step1Data.length - 1) {
-  //     navigation.navigate("Home");
-  //   } else {
-  //     setCurrentStep(currentStep + 1);
-  //   }
-  // };
-
   const handleNext = () => {
     console.log("Current Step:", currentStep);
     if (currentStep === steps.length - 1) {
       console.log("Navigating to Home...");
-      navigation.navigate("Home");
+      router.push("/");
     } else {
       console.log("Going to next step...");
       setCurrentStep(currentStep + 1);
@@ -250,29 +231,19 @@ const VendorSignUp = ({ navigation }) => {
 const styles = StyleSheet.create({
   progressContainer: {
     flex: 1,
-    // padding: 20,
-    // justifyContent: "center",
-    // alignItems: "center",
   },
   heading: {
     textAlign: "center",
     fontSize: 36.41,
     padding: 20,
-    // fontFamily: "Sofia Pro Semi Bold Az",
   },
-  // progressLabel: {
-  //   fontSize: 20,
-  //   fontWeight: "bold",
-  //   marginBottom: 20,
-  // },
+
   stepContent: {
     justifyContent: "center",
     alignItems: "center",
   },
   socialSection: {
-    // flexDirection: "row",
     justifyContent: "center",
-    // alignItems: "center",
     paddingLeft: 5,
   },
   input: {
@@ -329,7 +300,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 8,
     width: "98%",
-    // backgroundColor: "#fff",
   },
   buttonContainer: {
     flexDirection: "row",
@@ -354,7 +324,6 @@ const styles = StyleSheet.create({
   inputLabel: {
     paddingTop: 5,
     marginBottom: 5,
-    // paddingBottom: 10,
   },
 });
 
