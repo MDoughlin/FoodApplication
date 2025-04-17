@@ -31,7 +31,7 @@ const VendorHomeScreen = () => {
       {vendorExists ? (
         <TouchableOpacity
           style={styles.circle}
-          // onPress={() => router.push("/vendor/sign-up")}
+          onPress={() => router.push("/vendor/dashboard")}
         >
           <Text style={styles.circleText}>{dummyVendor.name.charAt(0)}</Text>
         </TouchableOpacity>
@@ -51,14 +51,13 @@ const VendorHomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    padding: 30,
   },
   circle: {
-    width: 100,
-    height: 100,
+    width: 50,
+    height: 50,
     borderRadius: 50,
-    backgroundColor: "orange", // 👀 visible color
+    backgroundColor: "blue",
     justifyContent: "center",
     alignItems: "center",
   },
