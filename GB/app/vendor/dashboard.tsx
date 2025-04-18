@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
   dashboardText: {
     fontSize: 16,
     textAlign: "left",
+    paddingLeft: 70,
   },
 });
 

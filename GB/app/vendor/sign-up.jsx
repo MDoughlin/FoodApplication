@@ -13,7 +13,7 @@ import { CheckBox } from "../../components/CheckBox";
 import Icon from "react-native-vector-icons/Ionicons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-const VendorSignUp = ({ navigation }) => {
+const VendorSignUp = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [step1Data, setStep1Data] = useState({ nameOfBusiness: "" });
   const [step2Data, setStep2Data] = useState({ phoneNumber: "" });
