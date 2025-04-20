@@ -1,4 +1,5 @@
 import { SetStateAction, useState } from "react";
+import { useRouter } from "expo-router";
 import * as ImagePicker from "expo-image-picker";
 import { MultipleSelectList } from "react-native-dropdown-select-list";
 import {
@@ -11,6 +12,8 @@ import {
 } from "react-native";
 
 const MenuItem = () => {
+  const router = useRouter();
+
   const [image, setImage] = useState<string | null>(null);
   const [selected, setSelected] = useState("");
 
@@ -57,8 +60,11 @@ const MenuItem = () => {
         label="Cuisine"
         search={false}
       />
+      {/* needs to submit and redirect to menu screen  */}
       <TouchableOpacity>
-        <Text style={styles.button}>Add Item</Text>
+        <Text style={styles.button} onPress={() => router.push("/vendor/menu")}>
+          Add Item
+        </Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

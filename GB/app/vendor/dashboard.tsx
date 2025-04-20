@@ -1,4 +1,5 @@
 import { useRouter } from "expo-router";
+import { BackButton } from "@/components/BackButton";
 import {
   SafeAreaView,
   Text,
@@ -19,6 +20,7 @@ const VendorDashboard = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <BackButton />
       <View style={styles.circle} />
       <View style={styles.dashboardList}>
         {dashboardItens.map((item, index) => (

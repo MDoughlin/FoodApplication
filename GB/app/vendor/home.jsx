@@ -1,5 +1,6 @@
 import { useRouter } from "expo-router";
 import React from "react";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
 
 const VendorHomeScreen = () => {
@@ -34,6 +35,12 @@ const VendorHomeScreen = () => {
           onPress={() => router.push("/vendor/dashboard")}
         >
           <Text style={styles.circleText}>{dummyVendor.name.charAt(0)}</Text>
+          <MaterialCommunityIcons
+            style={styles.addButton}
+            name="plus-circle-outline"
+            size={40}
+            onPress={() => router.push("/vendor/sign-up")}
+          />
         </TouchableOpacity>
       ) : (
         <>
@@ -65,6 +72,11 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 36,
     fontWeight: "bold",
+  },
+  addButton: {
+    position: "absolute",
+    left: 275,
+    top: 650,
   },
 });
 
