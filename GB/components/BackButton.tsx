@@ -15,7 +15,7 @@ export function BackButton(props: Props = { route: "/" }) {
   };
 
   return (
-    <TouchableOpacity onPress={handleRoute} style={{ left: 10, bottom: 680 }}>
+    <TouchableOpacity onPress={handleRoute} style={{ right: 150, top: 20 }}>
       <MaterialIcons name="arrow-back-ios-new" size={30} />
     </TouchableOpacity>
   );
